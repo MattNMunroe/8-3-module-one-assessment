@@ -28,7 +28,16 @@ const exampleMovies = require("./movies");
       "James and the Giant Peach",
     ];
  */
-function getAllMovieTitles() {}
+function getAllMovieTitles(movies) {
+  let allTitles = []
+  
+  //I need the loop to iterate through the titles of each movie in the array and log them. For every title of movies...so a for of loop
+  for (let movie of movies) {
+    allTitles.push(movie.title)
+  }
+
+  return allTitles
+}
 
 /**
  * getHighestMetascore()
@@ -41,7 +50,24 @@ function getAllMovieTitles() {}
  *  getHighestMetascore(movies);
  *  //> 96
  */
-function getHighestMetascore() {}
+function getHighestMetascore(movies) {
+  let highest = 0
+  let currentMetascore = movies[0]
+
+  if (!movies.length) {
+    return 0
+  }
+
+
+  for (let movie of movies) {
+    if (currentMetascore.metascore <= movie.metascore) {
+      highest = Number(movie.metascore)
+    } 
+  }
+
+
+return highest
+}
 
 /**
  * getAverageIMDBRating()
@@ -54,7 +80,17 @@ function getHighestMetascore() {}
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) {
+  if (!movies.length) {
+    return 0
+  }
+
+  let total = 0
+  for (let movie of movies) {
+    total += Number(movie.imdbRating)
+  }
+  return total / movies.length
+}
 
 /**
  * countByRating()
@@ -67,7 +103,14 @@ function getAverageIMDBRating() {}
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) {
+  let ratingCount = {}
+
+  for (let movie of movies) {
+ if (movie.)
+}
+  return ratingCount
+}
 
 /**
  * findById()
@@ -83,7 +126,15 @@ function countByRating() {}
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies, id) {
+  let film = null
+  for (const movie of movies) {
+    if (movie.imdbID === id) {
+      film = movie
+    }
+  }
+  return film 
+}
 
 /**
  * filterByGenre()
